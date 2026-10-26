@@ -13,7 +13,15 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const app = express();
 
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://amazing-belekoy-7feedf.netlify.app"
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
